@@ -16,8 +16,8 @@ $(document).ready(function() {
   $(".contact").last().click(function() {//.last only binds the event to the most recently added contact... otherwise it would show in all contacts the info you just added.
     $("#show-contact").show();
     $("#show-contact h2").text(newContact.firstName + " " + newContact.lastName);
-    $(".firstName").text(newContact.firstName);
-    $(".lastName").text(newContact.lastName);
+    $(".first-name").text(newContact.firstName);
+    $(".last-name").text(newContact.lastName);
     $(".address").text(newContact.address);
   });
   });
