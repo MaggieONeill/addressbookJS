@@ -18,9 +18,14 @@ Address.prototype.fullAddress = function() {
   return this.street + ", " + this.city + ", " + this.state;
 }
 
-
-
-
+function resetFields() {
+  $("input#new-first-name").val("");
+   $("input#new-last-name").val("");
+   $("input.new-street").val("");
+   $("input.new-city").val("");
+   $("input.new-state").val("");
+  //  $("div.new-address").not(':first').remove();
+ }
 
 $(document).ready(function() {
   $("#add-address").click(function() {
@@ -59,7 +64,7 @@ $(document).ready(function() {
 
    });
 
-   $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName + "</span></li>");
+   $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
 
       $(".contact").last().click(function() {
         $("#show-contact").show();
@@ -73,11 +78,12 @@ $(document).ready(function() {
           $("ul#addresses").append("<li>" + address.street + ", " + address.city + ", " + address.state + "</li>");
         });
       });
+      resetFields();
+      // $("input#new-first-name").val(""); //refactored by brining this code into a function
+      // $("input#new-last-name").val("");  //outside of the event binding, preprocess it before
+      // $("input.new-street").val("");     //document loads. now we can reference the reset field function
+      // $("input.new-city").val("");
+      // $("input.new-state").val("");
 
-      $("input#new-first-name").val("");
-      $("input#new-last-name").val("");
-      $("input.new-street").val("");
-      $("input.new-city").val("");
-      $("input.new-state").val("");
     });
   });
